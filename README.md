@@ -11,10 +11,10 @@ After the script finishes installing neccesary tools for Neovim plugins to work 
 
 You're now ready to use the config!
 ## Notes
-This config uses ZSH as it's integrated terminal shell, so you might need to install it or change the shell used in the `init.vim` file on 56th line
+This config uses ZSH as it's integrated terminal shell, so you might need to install it or change the shell used in the `init.vim` file on 56th line:
 ```vim
 function! OpenTerminal()
-  split term://zsh " <-- Change "zsh" here to your preferred shell
+  split term://zsh " <-- Change `zsh` here to your preferred shell
   resize 10
 endfunction
 ```
