@@ -93,9 +93,4 @@ nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
 
-function SetupNVim()
-  PlugInstall
-  CocInstall coc-tsserver coc-json coc-html coc-css coc-svelte coc-vue coc-angular
-endfunction
-
-command SetupConfig :call SetupNVim()
+command SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte

@@ -5,9 +5,9 @@ To install it, clone this repo to your local machine and run the bootstrapper sc
 ```sh
 $ ./setup-debian.sh
 ```
-This bootstrapper script updates/installs Neovim, then installs Node.js and Yarn package manager.
+This bootstrapper script updates/installs Neovim, then installs Node.js.
 
-After the script finishes installing neccesary tools for Neovim plugins to work properly, open Neovim and run `:SetupConfig` command.
+After the script finishes installing neccesary tools for Neovim plugins to work properly, open Neovim and run `:PlugInstall` and `:SetupCoc` commands.
 
 You're now ready to use the config!
 ## Notes

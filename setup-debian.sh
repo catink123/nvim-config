@@ -4,9 +4,9 @@ echo "The script may ask you to enter your root password to use the package mana
 echo "Beginning installation..."
 echo
 echo "Installing/updating Neovim..."
-sudo apt-get update && sudo apt-get install neovim
+sudo apt-get update && sudo apt-get install neovim curl
 echo "Installing config to the correct directory..."
-if [ -d "$HOME/.config/nvim ]
+if [ -d "$HOME/.config/nvim" ]
 then
   mkdir "$HOME/.config/nvim"
 fi
@@ -14,6 +14,4 @@ cp -r . "$HOME/.config/nvim"
 echo "Installing Node.js..."
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get update && sudo apt-get install -y nodejs build-essentials 
-echo "Insalling Yarn..."
-npm install --global yarn
-echo "Success! You can launch Neovim now and enter the `:SetupConfig` command."
+echo "Success! You can launch Neovim now and enter the `:PlugInstall`, and then the `:SetupCoc` command."
