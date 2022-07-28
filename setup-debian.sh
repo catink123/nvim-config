@@ -14,4 +14,4 @@ cp -r . "$HOME/.config/nvim"
 echo "Installing Node.js..."
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get update && sudo apt-get install -y nodejs build-essentials 
-echo "Success! You can launch Neovim now and enter the `:PlugInstall`, and then the `:SetupCoc` command."
+echo "Success! You can launch Neovim now and enter the ':PlugInstall', and then the ':SetupCoc' command."
