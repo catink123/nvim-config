@@ -25,10 +25,19 @@ call plug#begin()
 
   Plug 'romgrk/barbar.nvim'
 
-  Plug 'preservim/nerdtree'
+  " Plug 'preservim/nerdtree'
+  
+  " Telescope
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
+
   Plug 'preservim/nerdcommenter'
   Plug 'mhinz/vim-startify'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " Language plugins
+  Plug 'evanleck/vim-svelte'
 call plug#end()
 
 if (has("termguicolors"))
@@ -41,7 +50,7 @@ set splitright
 set splitbelow
 
 " Mappings
-nnoremap <C-q> :NERDTree<cr>
+nnoremap <C-q> :Telescope find_files<cr>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
@@ -93,4 +102,4 @@ nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
 
-command SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte
+command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-rust coc-lua

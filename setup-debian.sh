@@ -4,7 +4,7 @@ echo "The script may ask you to enter your root password to use the package mana
 echo "Beginning installation..."
 echo
 echo "Installing/updating Neovim..."
-sudo apt-get update && sudo apt-get install neovim curl
+sudo apt-get update && sudo apt-get install neovim curl ripgrep fd
 echo "Installing config to the correct directory..."
 if [ -d "$HOME/.config/nvim" ]
 then

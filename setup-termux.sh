@@ -4,7 +4,7 @@ echo "The script needs to be run as root in order to work."
 echo "Beginning installation..."
 echo
 echo "Installing/updating Neovim..."
-apt-get update && apt-get install neovim curl
+apt-get update && apt-get install neovim curl ripgrep fd
 echo "Installing config to the correct directory..."
 if [ -d "$HOME/.config/nvim" ]
 then
