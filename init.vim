@@ -50,11 +50,42 @@ set splitright
 set splitbelow
 
 " Mappings
-nnoremap <C-q> :Telescope find_files<cr>
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-nnoremap <silent> <C-Char-191> <leader>c<space>
+" nnoremap <C-q> :Telescope find_files<cr>
+nnoremap <C-q> :lua require("telescope").extensions.file_browser.file_browser()<cr>
+nnoremap <silent> <S-A-a> <Leader>c<space>
+
+" COC Mappings
+
+" Insert <tab> when previous text is space, refresh completion if not.
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" <C-Space> to open completion menu
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" <CR> to confirm completion
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 " turn terminal to normal mode with escape
 tnoremap <Esc> <C-\><C-n>
@@ -102,4 +133,4 @@ nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
 
-command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-rust coc-lua
+command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-rust coc-lua coc-snippets
