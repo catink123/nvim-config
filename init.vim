@@ -24,6 +24,7 @@ call plug#begin()
   Plug 'kyazdani42/nvim-web-devicons'
 
   Plug 'romgrk/barbar.nvim'
+  Plug 'jiangmiao/auto-pairs'
 
   " Plug 'preservim/nerdtree'
   
@@ -52,7 +53,7 @@ set splitbelow
 " Mappings
 " nnoremap <C-q> :Telescope find_files<cr>
 nnoremap <C-q> :lua require("telescope").extensions.file_browser.file_browser()<cr>
-nnoremap <silent> <S-A-a> <Leader>c<space>
+nnoremap <silent> <A-A> <Leader>c<space>
 
 " COC Mappings
 
@@ -132,5 +133,12 @@ nnoremap <silent>    <A-p> <Cmd>BufferPin<CR>
 nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
+" Commenting
+noremap <Space>c "<Plug>NERDComToggleComment"
 
+" Custom commands
 command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-rust coc-lua coc-snippets
+" NERDCommenter Settings
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDSpaceDelims = 1
