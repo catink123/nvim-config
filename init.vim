@@ -25,9 +25,8 @@ call plug#begin()
 
   Plug 'romgrk/barbar.nvim'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-surround'
 
-  " Plug 'preservim/nerdtree'
-  
   " Telescope
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -36,10 +35,13 @@ call plug#begin()
   Plug 'preservim/nerdcommenter'
   Plug 'mhinz/vim-startify'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'sheerun/vim-polyglot'
 
   " Language plugins
   Plug 'evanleck/vim-svelte'
 call plug#end()
+
+set timeoutlen=500
 
 if (has("termguicolors"))
   set termguicolors
@@ -134,7 +136,7 @@ nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
 " Commenting
-noremap <Space>c "<Plug>NERDComToggleComment"
+nnoremap <silent> <Space>c <Plug>NERDCommenterToggle<CR>
 
 " Custom commands
 command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-rust coc-lua coc-snippets
@@ -142,3 +144,4 @@ command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDSpaceDelims = 1
+let g:NERDAltDelims_js = 1
