@@ -5,7 +5,7 @@ echo "Beginning installation..."
 echo
 echo "Installing/updating Neovim..."
 add-apt-repository ppa:neovim-ppa/stable
-apt update && apt install neovim curl ripgrep fd
+apt update && apt install neovim curl ripgrep fd python
 echo "Installing config to the correct directory..."
 
 if [ -d "$HOME/.config" ]

@@ -55,7 +55,7 @@ set splitbelow
 
 " Mappings
 " nnoremap <C-q> :Telescope find_files<cr>
-nnoremap <C-q> :lua require("telescope").extensions.file_browser.file_browser()<cr>
+nnoremap <silent> <C-q> :lua require("telescope").extensions.file_browser.file_browser()<cr>
 nnoremap <silent> <A-A> <Leader>c<space>
 
 " COC Mappings

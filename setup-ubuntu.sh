@@ -5,15 +5,15 @@ echo "Beginning installation..."
 echo
 echo "Installing/updating Neovim..."
 sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt update && sudo apt install neovim curl ripgrep fd
+sudo apt update && sudo apt install neovim curl ripgrep fd python3
 echo "Installing config to the correct directory..."
 
-if [ -d "$HOME/.config" ]
+if [ ! -d "$HOME/.config" ]
 then
   mkdir "$HOME/.config"
 fi
 
-if [ -d "$HOME/.config/nvim" ]
+if [ ! -d "$HOME/.config/nvim" ]
 then
   mkdir "$HOME/.config/nvim"
 fi
