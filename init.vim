@@ -23,9 +23,10 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
 
-  Plug 'romgrk/barbar.nvim'
+  " Plug 'romgrk/barbar.nvim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
 
   " Telescope
   Plug 'nvim-lua/plenary.nvim'
@@ -111,37 +112,48 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-" BarBar Config
+" BarBar Config (NOT ACTIVE)
 " Move to previous/next
-nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
-nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
+" nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
+" nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
 " Re-order to previous/next
-nnoremap <silent>    <A-<> <Cmd>BufferMovePrevious<CR>
-nnoremap <silent>    <A->> <Cmd>BufferMoveNext<CR>
+" nnoremap <silent>    <A-<> <Cmd>BufferMovePrevious<CR>
+nnoremap <silent> <A-<> <Cmd>tabn<CR>
+nnoremap <silent> <A-,> <Cmd>bn<CR>
+" nnoremap <silent>    <A->> <Cmd>BufferMoveNext<CR>
+nnoremap <silent> <A->> <Cmd>tabp<CR>
+nnoremap <silent> <A-.> <Cmd>bp<CR>
 " Goto buffer in position...
-nnoremap <silent>    <A-1> <Cmd>BufferGoto 1<CR>
-nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
-nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
-nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
-nnoremap <silent>    <A-5> <Cmd>BufferGoto 5<CR>
-nnoremap <silent>    <A-6> <Cmd>BufferGoto 6<CR>
-nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
-nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
-nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
-nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
+" nnoremap <silent>    <A-1> <Cmd>BufferGoto 1<CR>
+" nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
+" nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
+" nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
+" nnoremap <silent>    <A-5> <Cmd>BufferGoto 5<CR>
+" nnoremap <silent>    <A-6> <Cmd>BufferGoto 6<CR>
+" nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
+" nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
+" nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
+" nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
 " Pin/unpin buffer
-nnoremap <silent>    <A-p> <Cmd>BufferPin<CR>
+" nnoremap <silent>    <A-p> <Cmd>BufferPin<CR>
 " Close buffer
-nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
+" nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
+nnoremap <silent>    <A-c> <Cmd>bdelete<CR>
+nnoremap <silent> <Space><A-c> <Cmd>bdelete!<CR>
 " Magic buffer-picking mode
-nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
+" nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
 " Commenting
 nnoremap <silent> <Space>c <Plug>NERDCommenterToggle<CR>
+vnoremap <silent> <Space>c <Plug>NERDCommenterToggle<CR>
 
 " Custom commands
-command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-rust coc-lua coc-snippets
+command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-lua coc-snippets
 " NERDCommenter Settings
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDSpaceDelims = 1
 let g:NERDAltDelims_js = 1
+
+" vim-airline Settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
