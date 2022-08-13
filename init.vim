@@ -147,7 +147,7 @@ nnoremap <silent> <Space>c <Plug>NERDCommenterToggle<CR>
 vnoremap <silent> <Space>c <Plug>NERDCommenterToggle<CR>
 
 " Custom commands
-command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-lua coc-snippets
+command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-lua coc-snippets coc-emmet
 " NERDCommenter Settings
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
