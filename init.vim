@@ -1,18 +1,17 @@
 set nocompatible
 set showmatch
 set ignorecase
-set mouse=v
 set hlsearch
 set tabstop=2
 set expandtab
 set shiftwidth=2
 set autoindent
 set number
+set mouse=
 set wildmode=longest,list
 "set cc=80
 filetype plugin indent on
 syntax on
-set mouse=a
 filetype plugin on
 set cursorline
 set ttyfast
@@ -147,7 +146,7 @@ nnoremap <silent> <Space>c <Plug>NERDCommenterToggle<CR>
 vnoremap <silent> <Space>c <Plug>NERDCommenterToggle<CR>
 
 " Custom commands
-command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-lua coc-snippets
+command! SetupCoc :CocInstall coc-tsserver coc-json coc-html coc-css coc-vue coc-angular coc-svelte coc-lua coc-snippets coc-emmet
 " NERDCommenter Settings
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
@@ -157,3 +156,8 @@ let g:NERDAltDelims_js = 1
 " vim-airline Settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" Don't hide buffers
+autocmd WinClosed * if &buftype == '' && !&modified | :bdelete | endif
+" Remove search highlight keymap
+nnoremap <Space>/ <Cmd>nohls<CR>
