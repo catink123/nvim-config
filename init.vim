@@ -7,6 +7,7 @@ set expandtab
 set shiftwidth=2
 set autoindent
 set number
+set relativenumber
 set mouse=
 set wildmode=longest,list
 "set cc=80
