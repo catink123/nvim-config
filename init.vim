@@ -176,6 +176,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Don't hide buffers
-autocmd WinClosed * if &buftype == '' && !&modified | :bdelete | endif
+" autocmd WinClosed * if &buftype == '' && !&modified | :bdelete | endif
 " Remove search highlight keymap
 nnoremap <Space>/ <Cmd>nohls<CR>
+
+" viminfo config (?)
+set viminfo='100,n$HOME/.vim/files/info/viminfo
