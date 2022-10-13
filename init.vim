@@ -2,13 +2,11 @@ set nocompatible
 set showmatch
 set ignorecase
 set hlsearch
-set tabstop=2
-set expandtab
 set shiftwidth=2
 set autoindent
 set number
 set relativenumber
-set mouse=
+set mouse=a
 set wildmode=longest,list
 "set cc=80
 filetype plugin indent on
@@ -41,6 +39,7 @@ call plug#begin()
   " Language plugins
   Plug 'evanleck/vim-svelte'
   Plug 'Glench/Vim-Jinja2-Syntax'
+  Plug 'lervag/vimtex'
 call plug#end()
 
 " set timeoutlen=500
@@ -49,7 +48,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 syntax enable
-let g:dracula_colorterm = 0
+" let g:dracula_colorterm = 0
 colorscheme dracula
 
 set splitright
@@ -107,6 +106,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 nnoremap <space>r <Plug>(coc-rename)
+nnoremap <silent> <space>f <Plug>(coc-codeaction-selected)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -133,7 +133,7 @@ endfunction
 " turn terminal to normal mode with escape
 tnoremap <Esc> <C-\><C-n>
 " start terminal in insert mode
-au BufEnter * if &buftype == 'terminal' | :startinsert | :set norelativenumber | :set nonumber | endif
+au BufEnter * if &buftype == 'terminal' | :startinsert | :set norelativenumber | :set nonumber | :set signcolumn=no | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
   split term://zsh
@@ -181,5 +181,8 @@ let g:airline_powerline_fonts = 1
 " Remove search highlight keymap
 nnoremap <Space>/ <Cmd>nohls<CR>
 
-" viminfo config (?)
-set viminfo='100,n$HOME/.vim/files/info/viminfo
+" Russian langmap
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+inoremap <C-l> <C-^>
