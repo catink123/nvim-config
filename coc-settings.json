@@ -1,4 +1,5 @@
 {
   "svelte.enable-ts-plugin": true,
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
+  "htmldjango.djlint.profile": "jinja"
 }

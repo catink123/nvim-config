@@ -40,6 +40,7 @@ call plug#begin()
 
   " Language plugins
   Plug 'evanleck/vim-svelte'
+  Plug 'Glench/Vim-Jinja2-Syntax'
 call plug#end()
 
 " set timeoutlen=500
