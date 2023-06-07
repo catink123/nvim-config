@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero')
 
-lsp.preset('recommended')
+lsp.preset({})
 
 lsp.ensure_installed({
 	'tsserver',
@@ -19,6 +19,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-y>'] = cmp.mapping.confirm({ select = true }),
 	['<C-Space>'] = cmp.mapping.complete(),
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil
+})
+
+lsp.setup_nvim_cmp({
+    mapping = cmp_mappings
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -34,7 +40,7 @@ lsp.on_attach(function(client, bufnr)
 	bind('n', '<leader>vca', function() vim.lsp.buf.code_action() end, opts)
 	bind('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
 	bind('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
-	bind('i', '<C-i>', function() vim.lsp.buf.signature_help() end, opts)
+	bind('i', '<C-l>', function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 lsp.setup()
