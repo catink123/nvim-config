@@ -30,14 +30,21 @@ return require('packer').startup(function(use)
 		}
 	}
 
-	use {
-		'tanvirtin/monokai.nvim',
-		config = function()
-			require('monokai').setup()
-		end
-	}
+--	use {
+--		'tanvirtin/monokai.nvim',
+--		config = function()
+--			require('monokai').setup()
+--		end
+--	}
+    
+    use 'nordtheme/vim'
 
-	use 'jiangmiao/auto-pairs'
+    use {
+        'm4xshen/autoclose.nvim',
+        config = function ()
+            require('autoclose').setup()
+        end
+    }
 
 	use {
 		'kylechui/nvim-surround',
@@ -63,4 +70,6 @@ return require('packer').startup(function(use)
 	use 'mbbill/undotree'
 
     use "folke/which-key.nvim"
+
+    use 'lervag/vimtex'
 end)

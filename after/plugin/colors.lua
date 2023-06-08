@@ -1,5 +1,5 @@
 function SetColors(colors)
-	colors = colors or "monokai"
+	colors = colors or "nord"
 	vim.cmd.colorscheme(colors)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
