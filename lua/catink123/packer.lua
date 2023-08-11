@@ -37,14 +37,19 @@ return require('packer').startup(function(use)
 --		end
 --	}
     
-    use 'nordtheme/vim'
+-- use 'nordtheme/vim'
 
-    use {
-        'm4xshen/autoclose.nvim',
-        config = function ()
-            require('autoclose').setup()
-        end
-    }
+  use 'xiyaowong/transparent.nvim'
+
+  use 'dasupradyumna/midnight.nvim'
+  use 'typicode/bg.nvim'
+
+  use {
+    'm4xshen/autoclose.nvim',
+    config = function ()
+      require('autoclose').setup()
+    end
+  }
 
 	use {
 		'kylechui/nvim-surround',
@@ -69,7 +74,12 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-fugitive'
 	use 'mbbill/undotree'
 
-    use "folke/which-key.nvim"
+  use "folke/which-key.nvim"
 
-    use 'lervag/vimtex'
+  use 'lervag/vimtex'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 end)
